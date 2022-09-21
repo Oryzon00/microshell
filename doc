@@ -1,0 +1,65 @@
+#include <unistd.h>
+#include <sys/wait.h>
+#include <string.h>
+
+
+
+- ssize_t write(int fd, const void *buf, size_t count);  
+	--> Error: -1
+
+- int close(int fd);
+	--> Error: -1
+	--> Succss: 0
+
+- pid_t fork(void);  
+	--> Error: -1
+	--> Parent: child PID
+	--> Child: 0
+
+- pid_t waitpid(pid_t pid, int *status, int options);
+	--> Error: -1
+	--> pid = -1 : any pid
+	--> status can be NULL 
+	--> options: WUNTRACED = 2
+
+- int chdir(const char *path);
+	--> Error: -1
+	--> Success : 0
+
+- int execve(const char *fichier, char *const argv[], char *const envp[]);  
+	--> Error: -1
+	--> Success : end process
+
+- int dup(int oldfd);
+- int dup2(int oldfd, int newfd);
+	--> Error: -1
+	--> Success: new fd
+
+- int pipe(int pipefd[2]);
+	--> Error: -1
+	--> Success: 0
+
+- int strcmp(const char *s1, const char *s2);
+	--> renvoie difference de s1 et s2
+		--> = 0 : meme string
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------
+
+- void *malloc(size_t size);
+	--> Error: NULL
+
+- void free(void *ptr);
+
+- sighandler_t signal(int signum, sighandler_t handler);
+	--> ERROR: SIG_ERR = ?
+
+- int kill(pid_t pid, int sig);
+
+- void exit(int status);
+
+------------------------------------------------------------------------------------------------
