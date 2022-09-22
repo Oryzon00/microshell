@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   example.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ajung <ajung@student.42.fr>                +#+  +:+       +#+        */
+/*   By: oryzon <oryzon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 12:15:17 by shackbei          #+#    #+#             */
-/*   Updated: 2022/09/16 20:06:58 by ajung            ###   ########.fr       */
+/*   Updated: 2022/09/22 04:28:07 by oryzon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,14 +72,14 @@ int	main(int argc, char *argv[], char *env[])
 		else if (i != 0 && (argv[i] == NULL || strcmp(argv[i], ";") == 0)) //exec in stdout
 		{
 			pid = fork();
-			if ( pid == 0)
+			if ( pid == 0) //child
 			{
 				if (ft_execute(argv, i, tmp_fd, env))
 					return (1);
 			}
-			else
+			else //parent
 			{
-				close(tmp_fd);
+				close(tmp_fd); //pourquoi on fait ca?
 				while(waitpid(-1, NULL, WUNTRACED) != -1)
 					;
 				tmp_fd = dup(STDIN_FILENO);
