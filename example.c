@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   example.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oryzon <oryzon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ajung <ajung@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 12:15:17 by shackbei          #+#    #+#             */
-/*   Updated: 2022/09/22 04:28:07 by oryzon           ###   ########.fr       */
+/*   Updated: 2022/09/22 19:32:10 by ajung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ int	main(int argc, char *argv[], char *env[])
 		{
 			pipe(fd);
 			pid = fork();
-			if ( pid == 0)
+			if (pid == 0)
 			{
 				dup2(fd[1], STDOUT_FILENO);
 				close(fd[0]);
